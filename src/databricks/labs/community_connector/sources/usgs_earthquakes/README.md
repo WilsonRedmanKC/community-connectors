@@ -36,13 +36,19 @@ databricks api post /api/2.1/unity-catalog/connections --profile DEFAULT \
 
 ### 3. Validate, deploy, and run the bundle
 
-From the repository root:
+Run the bundle commands from this connector directory, where `databricks.yml`
+lives. After cloning the repository, change to it with:
 
 ```bash
+cd src/databricks/labs/community_connector/sources/usgs_earthquakes
 databricks bundle validate -t dev --profile DEFAULT
 databricks bundle deploy -t dev --profile DEFAULT
 databricks bundle run usgs_earthquakes_refresh -t dev --profile DEFAULT
 ```
+
+The bundle syncs the shared connector framework from the repository root and
+installs it as an editable project dependency. You do not need to build or
+publish a separate framework wheel.
 
 The bundle is configured for the demo workspace at
 `https://adb-3990188733873176.16.azuredatabricks.net`. The default catalog is

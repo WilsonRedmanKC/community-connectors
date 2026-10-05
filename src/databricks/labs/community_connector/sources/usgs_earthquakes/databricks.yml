@@ -2,17 +2,8 @@ bundle:
   name: usgs-earthquakes-demo
 
 sync:
-  include:
-    - pyproject.toml
-    - src/**
-    - resources/**
-  exclude:
-    - .github/**
-    - tests/**
-    - tools/**
-    - pipeline-spec/**
-    - templates/**
-    - requirements/**
+  paths:
+    - ../../../../../../
 
 include:
   - resources/usgs_earthquakes.*.yml

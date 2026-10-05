@@ -53,6 +53,10 @@ Keep this destination hard-coded in the quickstart for now, as requested.
 - **Checkpoint:** bundle validation and deployment succeeded. The workspace
   contains job `373617954619619`, pipeline
   `c86145c7-8320-4a54-9197-fcdb3c30edf0`, and the DAB-created demo schema.
+  The bundle config and resource YAML now live beside this README. Its
+  `sync.paths` setting syncs the repository so the pipeline can install the
+  shared framework from the root `pyproject.toml` while running from this
+  connector directory.
 
 ### 3. Make the connector selectable in the UI
 
@@ -107,7 +111,11 @@ successfully. The live table is
 refresh job is `373617954619619`. The repo CLI's `create_connection` still
 submits `COMMUNITY`, which the workspace rejects; the README uses the current
 accepted `GENERIC_LAKEFLOW_CONNECT` API payload. The unrelated existing
-`stungevents-connector-poc` pipeline was left untouched.
+`stungevents-connector-poc` pipeline was left untouched. After moving the
+bundle into the USGS connector directory, `databricks bundle validate`,
+`databricks bundle deploy`, and `databricks bundle run` all succeeded from
+that directory. The bundle syncs the repository root for the editable
+framework dependency and sets the pipeline root to the shared `src/` tree.
 
 Official deployment references reviewed:
 

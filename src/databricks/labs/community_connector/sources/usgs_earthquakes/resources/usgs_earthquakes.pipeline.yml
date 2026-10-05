@@ -9,12 +9,12 @@ resources:
       edition: ADVANCED
       development: true
       continuous: false
-      root_path: ../src
+      root_path: ../../../../../../
       configuration:
         usgs.connection_name: ${var.connection_name}
       libraries:
         - glob:
-            include: ../src/databricks/labs/community_connector/sources/usgs_earthquakes/ingest.py
+            include: ../../../../../../databricks/labs/community_connector/sources/usgs_earthquakes/ingest.py
       environment:
         dependencies:
           - --editable ${workspace.file_path}
